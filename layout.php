@@ -23,6 +23,7 @@ $nav = [
     ['href'=>'dashboard.php','icon'=>'🏠','label'=>'Dashboard','key'=>'dashboard'],
     ['href'=>'fields.php','icon'=>'🗺️','label'=>'My Fields','key'=>'fields'],
     ['href'=>'crops.php','icon'=>'🌾','label'=>'My Crops','key'=>'crops'],
+    ['href'=>'farmers_card.php','icon'=>'🪪','label'=>'Farmers Card','key'=>'farmers_card'],
   ],
 
   'monitor' => [
@@ -36,6 +37,7 @@ $nav = [
     ['href'=>'crop_recommend.php','icon'=>'🌱','label'=>'Crop Recommendation','key'=>'crop_recommend'],
     ['href'=>'seeds.php','icon'=>'🌱','label'=>'Seed Finder','key'=>'seeds'],
     ['href'=>'market.php','icon'=>'💰','label'=>'Market Prices','key'=>'market'],
+    ['href'=>'crop_rotation.php','icon'=>'🔄','label'=>'Rotation Advisor','key'=>'rotation'],
     ['href'=>'notifications.php','icon'=>'🔔','label'=>'Notifications','key'=>'notifications','badge'=>$notifCount],
   ],
 
@@ -43,6 +45,7 @@ $nav = [
   'support' => [
     ['href'=>'faq.php','icon'=>'❓','label'=>'Ask Expert','key'=>'faq'],
     ['href'=>'my_questions.php','icon'=>'📝','label'=>'My Questions','key'=>'myq'],
+    ['href'=>'loan_hub.php','icon'=>'🏦','label'=>'Loan Hub','key'=>'loan_hub'],
     ['href'=>'compliance_checker.php','icon'=>'⚖️','label'=>'Compliance Checker','key'=>'compliance'],
   ],
 

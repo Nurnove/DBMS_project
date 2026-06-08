@@ -99,9 +99,7 @@ include 'layout.php';
           📅 Season: <b><?= htmlspecialchars($row['season']) ?></b>
         </div>
 
-        <div>
-          ⭐ Score: <b style="color:<?= $color ?>"><?= $score ?>%</b>
-        </div>
+        
 
         <?php if (!empty($row['reason'])): ?>
         <div style="font-size:13px;color:var(--text2);margin-top:6px">

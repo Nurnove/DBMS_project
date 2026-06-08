@@ -39,7 +39,7 @@ include 'layout.php';
         <option value="">— Select Crop —</option>
         <?php while ($c = $allCrops->fetch_assoc()): ?>
           <option value="<?= $c['id'] ?>" <?= $c['id'] == $selectedCrop ? 'selected' : '' ?>>
-            <?= htmlspecialchars($c['name']) ?> (<?= $c['season'] ?>)
+            <?= htmlspecialchars($c['name']) ?> 
           </option>
         <?php endwhile; ?>
       </select>

@@ -58,15 +58,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $latitude  = $_POST['latitude'] ?? '';
     $longitude = $_POST['longitude'] ?? '';
     $full_address = clean($conn, $_POST['full_address'] ?? '');
-
-    /* ⭐ ADDED */
     $district = clean($conn, $_POST['district'] ?? '');
 
     if (!$crop_id || !$pest_id || !$severity || !$latitude || !$longitude || !$full_address) {
+
         $error = "All fields including GPS are required.";
+
     } else {
 
         $fv = $field_id > 0 ? $field_id : 'NULL';
+
+        $report_id = 0;
 
         /* =========================
            UPDATE
@@ -86,6 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     district='$district'
                 WHERE id=$id AND user_id=$uid
             ");
+
+            $report_id = $id;
 
             $success = "Report updated successfully!";
         }
@@ -122,7 +126,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 )
             ");
 
-            /* ⭐ NOTIFICATION (ADDED) */
+            /* VERY IMPORTANT */
+            $report_id = $conn->insert_id;
+
             $conn->query("
                 INSERT INTO notifications (
                     user_id,
@@ -145,23 +151,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $success = "Pest report submitted successfully!";
         }
 
-        /* IMAGE UPLOAD */
+        /* =========================
+           IMAGE UPLOAD
+        ========================= */
         if (!empty($_FILES['image']['name'])) {
 
-            $rid = $id > 0 ? $id : $conn->insert_id;
-
             $dir = "assets/images/pests/";
-            if (!is_dir($dir)) mkdir($dir, 0777, true);
+
+            if (!is_dir($dir)) {
+                mkdir($dir, 0777, true);
+            }
 
             $file = time() . "_" . basename($_FILES["image"]["name"]);
             $path = $dir . $file;
 
-            move_uploaded_file($_FILES["image"]["tmp_name"], $path);
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $path)) {
 
-            $conn->query("
-                INSERT INTO pest_images (report_id, image_url)
-                VALUES ($rid, '$path')
-            ");
+                $conn->query("
+                    INSERT INTO pest_images (
+                        report_id,
+                        image_url
+                    )
+                    VALUES (
+                        $report_id,
+                        '$path'
+                    )
+                ");
+            }
         }
     }
 }

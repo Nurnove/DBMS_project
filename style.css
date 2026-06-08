@@ -64,36 +64,40 @@
 
 /* Dark mode tokens */
 [data-theme="dark"] {
-  --bg:           #0c1508;
-  --bg2:          #131d0d;
-  --bg3:          #192410;
-  --surface:      #192410;
-  --surface2:     #1f2d14;
-  --surface3:     #263818;
-  --border:       #2a4018;
-  --border2:      #385224;
+  /* Backgrounds — slightly warmer, not pitch black */
+  --bg:           #0f1a0a;
+  --bg2:          #161f10;
+  --bg3:          #1c2914;
+  --surface:      #1c2914;
+  --surface2:     #223018;
+  --surface3:     #293c1e;
+  --border:       #2e4420;
+  --border2:      #3a5428;
 
-  --text:         #e8f5dc;
-  --text2:        #a8c888;
-  --text3:        #6a9048;
-  --text4:        #48602a;
+  /* Text — toned down from near-white to softer warm off-white */
+  --text:         #cfdfc0;
+  --text2:        #92b074;
+  --text3:        #5e8040;
+  --text4:        #405830;
 
-  --accent:       #4daa28;
-  --accent2:      #68c840;
-  --accent3:      #88e058;
-  --accent-glow:  rgba(77,170,40,0.22);
+  /* Accent — desaturated, less neon */
+  --accent:       #459624;
+  --accent2:      #5aac34;
+  --accent3:      #72c048;
+  --accent-glow:  rgba(90,172,52,0.18);
   --accent-light: #1a3010;
 
-  --gold:         #e0b830;
-  --gold-light:   #2a2008;
-  --danger:       #e05050;
-  --danger-light: #280c0c;
-  --warn:         #e09030;
-  --warn-light:   #281808;
-  --info:         #3898d0;
-  --info-light:   #081828;
-  --success:      #30c060;
-  --success-light:#082018;
+  /* Status colors — all pulled back ~15% brightness & saturation */
+  --gold:         #c8a428;
+  --gold-light:   #251e08;
+  --danger:       #c84848;
+  --danger-light: #220a0a;
+  --warn:         #c87e28;
+  --warn-light:   #221508;
+  --info:         #3084b8;
+  --info-light:   #081624;
+  --success:      #28a850;
+  --success-light:#071a10;
 
   --shadow-xs:    0 1px 4px rgba(0,0,0,0.3);
   --shadow-sm:    0 2px 12px rgba(0,0,0,0.35);

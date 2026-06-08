@@ -83,7 +83,7 @@ Filter by pest resistance and yield potential.
     >
 
         <?= htmlspecialchars($c['name']) ?>
-        (<?= $c['season'] ?>)
+        
 
     </option>
 
